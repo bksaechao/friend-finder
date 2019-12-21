@@ -1,9 +1,11 @@
 .jumbotron {
-    background: mediumslateblue;
-    color: aliceblue;
+    background: burlywood;
+    color: firebrick;
+    margin-top: 30px;
+    margin-bottom: 10px;
 }
 
 .btn {
-    background: aliceblue;
-    color: mediumslateblue;
+    background: firebrick;
+    color: #ffffff;
 }
