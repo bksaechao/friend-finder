@@ -33,6 +33,8 @@
             <option value="4">4</option>
             <option value="5">1 (Strongly Agree)</option>
         </select>
+        <br>
+        <br>
         <h3>Question 2</h3>
         <h4>2</h4>
         <select class="default-select shadow-sm rounded-pill" id="q1">
@@ -43,6 +45,8 @@
             <option value="4">4</option>
             <option value="5">1 (Strongly Agree)</option>
         </select>
+        <br>
+        <br>
         <h3>Question 3</h3>
         <h4>3</h4>
         <select class="default-select shadow-sm rounded-pill" id="q1">
@@ -53,6 +57,8 @@
             <option value="4">4</option>
             <option value="5">1 (Strongly Agree)</option>
         </select>
+        <br>
+        <br>
         <h3>Question 4</h3>
         <h4>4</h4>
         <select class="default-select shadow-sm rounded-pill" id="q1">
@@ -63,6 +69,8 @@
             <option value="4">4</option>
             <option value="5">1 (Strongly Agree)</option>
         </select>
+        <br>
+        <br>
         <h3>Question 5</h3>
         <h4>5</h4>
         <select class="default-select shadow-sm rounded-pill" id="q1">
@@ -73,6 +81,8 @@
             <option value="4">4</option>
             <option value="5">1 (Strongly Agree)</option>
         </select>
+        <br>
+        <br>
         <h3>Question 6</h3>
         <h4>6</h4>
         <select class="default-select shadow-sm rounded-pill" id="q1">
@@ -83,6 +93,8 @@
             <option value="4">4</option>
             <option value="5">1 (Strongly Agree)</option>
         </select>
+        <br>
+        <br>
         <h3>Question 7</h3>
         <h4>7</h4>
         <select class="default-select shadow-sm rounded-pill" id="q1">
@@ -93,6 +105,8 @@
             <option value="4">4</option>
             <option value="5">1 (Strongly Agree)</option>
         </select>
+        <br>
+        <br>
         <h3>Question 8</h3>
         <h4>8</h4>
         <select class="default-select shadow-sm rounded-pill" id="q1">
@@ -103,6 +117,8 @@
             <option value="4">4</option>
             <option value="5">1 (Strongly Agree)</option>
         </select>
+        <br>
+        <br>
         <h3>Question 9</h3>
         <h4>9</h4>
         <select class="default-select shadow-sm rounded-pill" id="q1">
@@ -113,6 +129,8 @@
             <option value="4">4</option>
             <option value="5">1 (Strongly Agree)</option>
         </select>
+        <br>
+        <br>
         <h3>Question 10</h3>
         <h4>10</h4>
         <select class="default-select shadow-sm rounded-pill" id="q1">
@@ -126,6 +144,25 @@
         <br>
         <br>
         <button type="submit" class="btn btn-primary btn-block rounded-pill" id="submit">Submit</button>
+        <div id="results-modal" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">x</button>
+                        <h2 class="modal-title">
+                            <strong>Best Match</strong>
+                        </h2>
+                    </div>
+                    <div class="modal-body">
+                        <h2 id="match-name"></h2>
+                        <img id="match-img" src="https://via.placeholder.com/200" alt="place-match">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
         <hr>
         <div class="container">
             <a href="#">API Friends List</a>
