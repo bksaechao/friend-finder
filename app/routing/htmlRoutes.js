@@ -4,12 +4,12 @@ const path = require("path");
 // =============================================================
 module.exports = app => {
     // Survey route
-    app.get("/survey", req, res => {
+    app.get("/survey", (req, res) => {
         res.sendFile(path.join(__dirname, "../public/survey.html"));
     });
 
     // Default, catch-all route to homepage
-    app.get("*", req, res => {
+    app.get("*", (req, res) => {
         res.sendFile(path.join(__dirname, "../public/home.html"));
     })
 }

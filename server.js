@@ -20,6 +20,6 @@ require('./app/routing/htmlRoutes')(app);
 
 // Starts the server to begin listening
 // =============================================================
-app.listen(PORT => {
+app.listen(PORT, () => {
     console.log("App listening on PORT " + PORT);
 });

@@ -5,7 +5,7 @@ const allFriends = require("../data/friends")
 // =============================================================
 module.exports = app => {
     // Route to the JSON list of all friends
-    app.get("/api/friends", req, res => {
+    app.get("/api/friends", (req, res) => {
         res.json(allFriends)
     });
 
