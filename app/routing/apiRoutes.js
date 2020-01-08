@@ -10,4 +10,8 @@ module.exports = app => {
     });
 
     // POST route to handle survey results
+    app.post("/api/friends", (req, res) => {
+
+    });
+
 }
