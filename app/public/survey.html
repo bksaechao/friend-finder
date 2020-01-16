@@ -17,6 +17,7 @@
 </style>
 
 <body>
+    <!-- Survey -->
     <div class="container">
         <h2>Survey Questions</h2>
         <hr>
@@ -150,6 +151,7 @@
         <br>
         <button type="submit" class="btn btn-primary btn-block rounded-pill" data-toggle="modal"
             data-target="#results-modal" id="submit">Submit</button>
+            
         <!-- Match Modal -->
         <div id="results-modal" class="modal fade" role="dialog">
             <div class="modal-dialog">
@@ -162,7 +164,7 @@
                     </div>
                     <div class="modal-body">
                         <h2 id="match-name"></h2>
-                        <img id="match-img" src="https://via.placeholder.com/200" alt="place-match">
+                        <img id="match-img" class="img-responsive" src="" style="max-height:250px;" alt="place-match">
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -208,7 +210,6 @@
             $.post("/api/friends", newFriend, function (data) {
                 $("#match-name").text(data.name);
                 $("#match-img").attr("src", data.photo)
-
             })
         });
     </script>
