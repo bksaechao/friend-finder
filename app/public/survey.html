@@ -32,7 +32,6 @@
         <h3>Question 1</h3>
         <h4>1</h4>
         <select class="default-select shadow-sm rounded-pill" id="q1">
-            <option value>Select an Option</option>
             <option value="1">1 (Strongly Disagree)</option>
             <option value="2">2</option>
             <option value="3">3</option>
@@ -44,7 +43,6 @@
         <h3>Question 2</h3>
         <h4>2</h4>
         <select class="default-select shadow-sm rounded-pill" id="q2">
-            <option value>Select an Option</option>
             <option value="1">1 (Strongly Disagree)</option>
             <option value="2">2</option>
             <option value="3">3</option>
@@ -56,7 +54,6 @@
         <h3>Question 3</h3>
         <h4>3</h4>
         <select class="default-select shadow-sm rounded-pill" id="q3">
-            <option value>Select an Option</option>
             <option value="1">1 (Strongly Disagree)</option>
             <option value="2">2</option>
             <option value="3">3</option>
@@ -68,7 +65,6 @@
         <h3>Question 4</h3>
         <h4>4</h4>
         <select class="default-select shadow-sm rounded-pill" id="q4">
-            <option value>Select an Option</option>
             <option value="1">1 (Strongly Disagree)</option>
             <option value="2">2</option>
             <option value="3">3</option>
@@ -80,7 +76,6 @@
         <h3>Question 5</h3>
         <h4>5</h4>
         <select class="default-select shadow-sm rounded-pill" id="q5">
-            <option value>Select an Option</option>
             <option value="1">1 (Strongly Disagree)</option>
             <option value="2">2</option>
             <option value="3">3</option>
@@ -92,7 +87,6 @@
         <h3>Question 6</h3>
         <h4>6</h4>
         <select class="default-select shadow-sm rounded-pill" id="q6">
-            <option value>Select an Option</option>
             <option value="1">1 (Strongly Disagree)</option>
             <option value="2">2</option>
             <option value="3">3</option>
@@ -104,7 +98,6 @@
         <h3>Question 7</h3>
         <h4>7</h4>
         <select class="default-select shadow-sm rounded-pill" id="q7">
-            <option value>Select an Option</option>
             <option value="1">1 (Strongly Disagree)</option>
             <option value="2">2</option>
             <option value="3">3</option>
@@ -116,7 +109,6 @@
         <h3>Question 8</h3>
         <h4>8</h4>
         <select class="default-select shadow-sm rounded-pill" id="q8">
-            <option value>Select an Option</option>
             <option value="1">1 (Strongly Disagree)</option>
             <option value="2">2</option>
             <option value="3">3</option>
@@ -128,7 +120,6 @@
         <h3>Question 9</h3>
         <h4>9</h4>
         <select class="default-select shadow-sm rounded-pill" id="q9">
-            <option value>Select an Option</option>
             <option value="1">1 (Strongly Disagree)</option>
             <option value="2">2</option>
             <option value="3">3</option>
@@ -140,7 +131,6 @@
         <h3>Question 10</h3>
         <h4>10</h4>
         <select class="default-select shadow-sm rounded-pill" id="q10">
-            <option value>Select an Option</option>
             <option value="1">1 (Strongly Disagree)</option>
             <option value="2">2</option>
             <option value="3">3</option>
@@ -149,8 +139,7 @@
         </select>
         <br>
         <br>
-        <button type="submit" class="btn btn-primary btn-block rounded-pill" data-toggle="modal"
-            data-target="#results-modal" id="submit">Submit</button>
+        <button type="submit" class="btn btn-primary btn-block rounded-pill" id="submit">Submit</button>
             
         <!-- Match Modal -->
         <div id="results-modal" class="modal fade" role="dialog">
@@ -188,30 +177,64 @@
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
     <script type="text/javascript">
-        $('#submit').on("click", () => {
 
+        $('#submit').on("click", () => {
             var newFriend = {
                 name: $("#name").val().trim(),
                 photo: $("#photo").val().trim(),
                 surveyScore: [
-                    $('#q1').val().trim(),
-                    $('#q2').val().trim(),
-                    $('#q3').val().trim(),
-                    $('#q4').val().trim(),
-                    $('#q5').val().trim(),
-                    $('#q6').val().trim(),
-                    $('#q7').val().trim(),
-                    $('#q8').val().trim(),
-                    $('#q9').val().trim(),
-                    $('#q10').val().trim()
+                    parseInt($('#q1').val()),
+                    parseInt($('#q2').val()),
+                    parseInt($('#q3').val()),
+                    parseInt($('#q4').val()),
+                    parseInt($('#q5').val()),
+                    parseInt($('#q6').val()),
+                    parseInt($('#q7').val()),
+                    parseInt($('#q8').val()),
+                    parseInt($('#q9').val()),
+                    parseInt($('#q10').val())
                 ]
             };
 
-            $.post("/api/friends", newFriend, function (data) {
+            if (isValid(newFriend)) {
+                $.post("/api/friends", newFriend, function (data) {
                 $("#match-name").text(data.name);
                 $("#match-img").attr("src", data.photo)
+                $("#results-modal").modal("toggle");
             })
+        }
         });
+
+        function isValid(userObj) {
+                let user = true;
+                let allScores = true;
+
+                if (userObj.name.length <= 1) {
+                    user = false
+                    alert("You need a name")
+                }
+
+                if (userObj.photo.length <= 1){
+                    user = false
+                    alert("You need an image")
+                }
+
+                for (let i = 0; i < userObj.surveyScore.length; i++) {
+                    const element = userObj.surveyScore[i];
+
+                    if (typeof element !== "number"){
+                        user = false
+                        allScores = false
+                    }
+                    
+                }
+
+                if (allScores === false){
+                    alert("Please answer each question!")
+                }
+
+                return user;
+            }
     </script>
 </body>
 
