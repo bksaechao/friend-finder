@@ -15,13 +15,16 @@ module.exports = app => {
         let bestScore = 50;
         let bestMatch = allFriends[0]
 
+
+
         for (let i = 0; i < allFriends.length; i++) {
             let totalScore = 0
             const currentFriend = allFriends[i];
 
+
             for (let i = 0; i < currentFriend.scores.length; i++) {
-                const friendScore = currentFriend.scores[i];
-                const userScore = user.surveyScore[i];
+                const friendScore = parseInt(currentFriend.scores[i]);
+                const userScore = parseInt(user.surveyScore[i]);
 
                 totalScore += Math.abs(friendScore - userScore);
             }

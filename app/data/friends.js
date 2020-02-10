@@ -6,7 +6,7 @@ const friends = [
     },
     {
         name: "John",
-        photo: "https://via.placeholder.come/200",
+        photo: "https://via.placeholder.com/200",
         scores: [1, 2, 3, 4, 5, 4, 3, 2, 1, 4]
     },
     {

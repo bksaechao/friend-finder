@@ -31,7 +31,8 @@
         <hr>
         <h3>Question 1</h3>
         <h4>1</h4>
-        <select class="default-select shadow-sm rounded-pill" id="q1">
+        <select class="default-select shadow-sm rounded-pill" id="q1" required="required">
+            <option value="">Please select an option</option>
             <option value="1">1 (Strongly Disagree)</option>
             <option value="2">2</option>
             <option value="3">3</option>
@@ -42,7 +43,8 @@
         <br>
         <h3>Question 2</h3>
         <h4>2</h4>
-        <select class="default-select shadow-sm rounded-pill" id="q2">
+        <select class="default-select shadow-sm rounded-pill" id="q2" required="required">
+            <option value="">Please select an option</option>
             <option value="1">1 (Strongly Disagree)</option>
             <option value="2">2</option>
             <option value="3">3</option>
@@ -53,7 +55,8 @@
         <br>
         <h3>Question 3</h3>
         <h4>3</h4>
-        <select class="default-select shadow-sm rounded-pill" id="q3">
+        <select class="default-select shadow-sm rounded-pill" id="q3" required="required">
+            <option value="">Please select an option</option>
             <option value="1">1 (Strongly Disagree)</option>
             <option value="2">2</option>
             <option value="3">3</option>
@@ -64,7 +67,8 @@
         <br>
         <h3>Question 4</h3>
         <h4>4</h4>
-        <select class="default-select shadow-sm rounded-pill" id="q4">
+        <select class="default-select shadow-sm rounded-pill" id="q4" required="required">
+            <option value="">Please select an option</option>
             <option value="1">1 (Strongly Disagree)</option>
             <option value="2">2</option>
             <option value="3">3</option>
@@ -75,7 +79,8 @@
         <br>
         <h3>Question 5</h3>
         <h4>5</h4>
-        <select class="default-select shadow-sm rounded-pill" id="q5">
+        <select class="default-select shadow-sm rounded-pill" id="q5" required="required">
+            <option value="">Please select an option</option>
             <option value="1">1 (Strongly Disagree)</option>
             <option value="2">2</option>
             <option value="3">3</option>
@@ -86,7 +91,8 @@
         <br>
         <h3>Question 6</h3>
         <h4>6</h4>
-        <select class="default-select shadow-sm rounded-pill" id="q6">
+        <select class="default-select shadow-sm rounded-pill" id="q6" required="required">
+            <option value="">Please select an option</option>
             <option value="1">1 (Strongly Disagree)</option>
             <option value="2">2</option>
             <option value="3">3</option>
@@ -97,7 +103,8 @@
         <br>
         <h3>Question 7</h3>
         <h4>7</h4>
-        <select class="default-select shadow-sm rounded-pill" id="q7">
+        <select class="default-select shadow-sm rounded-pill" id="q7" required="required">
+            <option value="">Please select an option</option>
             <option value="1">1 (Strongly Disagree)</option>
             <option value="2">2</option>
             <option value="3">3</option>
@@ -108,7 +115,8 @@
         <br>
         <h3>Question 8</h3>
         <h4>8</h4>
-        <select class="default-select shadow-sm rounded-pill" id="q8">
+        <select class="default-select shadow-sm rounded-pill" id="q8" required="required">
+            <option value="">Please select an option</option>
             <option value="1">1 (Strongly Disagree)</option>
             <option value="2">2</option>
             <option value="3">3</option>
@@ -119,7 +127,8 @@
         <br>
         <h3>Question 9</h3>
         <h4>9</h4>
-        <select class="default-select shadow-sm rounded-pill" id="q9">
+        <select class="default-select shadow-sm rounded-pill" id="q9" required="required">
+            <option value="">Please select an option</option>
             <option value="1">1 (Strongly Disagree)</option>
             <option value="2">2</option>
             <option value="3">3</option>
@@ -130,7 +139,8 @@
         <br>
         <h3>Question 10</h3>
         <h4>10</h4>
-        <select class="default-select shadow-sm rounded-pill" id="q10">
+        <select class="default-select shadow-sm rounded-pill" id="q10" required="required">
+            <option value="">Please select an option</option>
             <option value="1">1 (Strongly Disagree)</option>
             <option value="2">2</option>
             <option value="3">3</option>
@@ -183,16 +193,16 @@
                 name: $("#name").val().trim(),
                 photo: $("#photo").val().trim(),
                 surveyScore: [
-                    parseInt($('#q1').val()),
-                    parseInt($('#q2').val()),
-                    parseInt($('#q3').val()),
-                    parseInt($('#q4').val()),
-                    parseInt($('#q5').val()),
-                    parseInt($('#q6').val()),
-                    parseInt($('#q7').val()),
-                    parseInt($('#q8').val()),
-                    parseInt($('#q9').val()),
-                    parseInt($('#q10').val())
+                    $('#q1').val().trim(),
+                    $('#q2').val().trim(),
+                    $('#q3').val().trim(),
+                    $('#q4').val().trim(),
+                    $('#q5').val().trim(),
+                    $('#q6').val().trim(),
+                    $('#q7').val().trim(),
+                    $('#q8').val().trim(),
+                    $('#q9').val().trim(),
+                    $('#q10').val().trim()
                 ]
             };
 
@@ -211,18 +221,18 @@
 
                 if (userObj.name.length <= 1) {
                     user = false
-                    alert("You need a name")
+                    alert("Please provide your name!")
                 }
 
                 if (userObj.photo.length <= 1){
                     user = false
-                    alert("You need an image")
+                    alert("Please provide a URL link to your photo!")
                 }
 
                 for (let i = 0; i < userObj.surveyScore.length; i++) {
                     const element = userObj.surveyScore[i];
 
-                    if (typeof element !== "number"){
+                    if ( element === "") {
                         user = false
                         allScores = false
                     }
