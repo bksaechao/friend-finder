@@ -9,7 +9,7 @@ Friend finder is meant to simulate a simple dating app. The application is imple
 
 ## Demo
 	
-Please check it out [here](https://dashboard.heroku.com/apps/serene-castle-23522).
+Check it out [here](https://dashboard.heroku.com/apps/serene-castle-23522)!.
 <br>
 <img src="app/public/assets/images/friendMatch.gif" alt="matchGif" height="300" width="600">
 ## Installation
