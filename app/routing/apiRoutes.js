@@ -12,7 +12,7 @@ module.exports = app => {
     // POST route to handle survey results
     app.post("/api/friends", (req, res) => {
         const user = req.body;
-        let bestScore = 50;
+        let bestScore = 0;
         let bestMatch = allFriends[0]
 
 
@@ -28,6 +28,8 @@ module.exports = app => {
 
                 totalScore += Math.abs(friendScore - userScore);
             }
+
+            console.log(totalScore);
 
             if (totalScore < bestScore) {
                 bestScore = totalScore

@@ -9,7 +9,7 @@ module.exports = app => {
     });
 
     // Default, catch-all route to homepage
-    app.get("/*", (req, res) => {
+    app.get("*", (req, res) => {
         res.sendFile(path.join(__dirname, "../public/home.html"));
     })
 }
