@@ -12,7 +12,7 @@ module.exports = app => {
     // POST route to handle survey results
     app.post("/api/friends", (req, res) => {
         const user = req.body;
-        let bestScore = 0;
+        let bestScore = 50;
         let bestMatch = allFriends[0]
 
 
